@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "paths": {
+      "Src/*": ["./src/*"],
+      "Apis/*": ["./src/apis/*"],
+      "Common/*": ["./src/common/*"],
+      "Components/*": ["./src/components/*"],
+      "Images/*": ["./src/images/*"],
+      "Lib/*": ["./src/lib/*"],
+      "Pages/*": ["./src/pages/*"],
+      "Utils/*": ["./src/utils/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "src/fonts",
+    "build",
+    "dist",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
+}
