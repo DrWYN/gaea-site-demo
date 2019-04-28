@@ -3,16 +3,16 @@ import * as Styled from './tree-node.style';
 import * as typings from './tree-node.type';
 
 export class TreeNode extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
-  public componentWillMount() {
+  componentWillMount() {
     this.setState((_, props) => ({
       showChildren: props.defaultExpendAll || props.showChildren
     }));
   }
 
-  public handleContainerClick = (event: Event) => {
+  handleContainerClick = (event: Event) => {
     const { onClick } = this.props;
     onClick && onClick(event);
     if (!this.props.toggleByArrow) {
@@ -25,7 +25,7 @@ export class TreeNode extends React.Component<typings.Props, typings.State> {
     }
   };
 
-  public handleArrowClick = (event: Event) => {
+  handleArrowClick = (event: Event) => {
     event.stopPropagation();
 
     this.setState(state => ({
@@ -36,7 +36,7 @@ export class TreeNode extends React.Component<typings.Props, typings.State> {
     }
   };
 
-  public render() {
+  render() {
     const childrenStyle = {
       display: this.state.showChildren ? 'block' : null
     };

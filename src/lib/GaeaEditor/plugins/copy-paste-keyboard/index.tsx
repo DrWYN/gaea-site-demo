@@ -9,17 +9,17 @@ const keymaster = require('keymaster');
 
 @Connect
 class CopyPaste extends PureComponent<Props, State> {
-  public componentDidMount() {
+  componentDidMount() {
     keymaster('⌘+c, ctrl+c', this.copy);
     keymaster('⌘+v, ctrl+v', this.paste);
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     keymaster.unbind('⌘+c, ctrl+c');
     keymaster.unbind('⌘+v, ctrl+v');
   }
 
-  public render() {
+  render() {
     return null as any;
   }
 

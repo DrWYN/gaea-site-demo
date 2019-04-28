@@ -5,10 +5,10 @@ import * as Styled from './style';
 
 @Connect
 class Save extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
-  public render() {
+  render() {
     return (
       <Styled.Container onClick={this.handleClick}>
         {this.props.stores.ApplicationStore.setLocale('保存', 'Save')}

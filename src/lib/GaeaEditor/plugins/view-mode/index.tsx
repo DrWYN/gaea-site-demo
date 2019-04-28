@@ -38,14 +38,14 @@ const selections: Array<{
 
 @Connect
 class ViewMode extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
-  public componentWillMount() {
+  componentWillMount() {
     this.changeCurrentIndex(0);
   }
 
-  public render() {
+  render() {
     return (
       <S.Container onMouseEnter={this.showModel} onMouseLeave={this.hideModel}>
         <Icon type={selections[this.state.currentIndex].icon} />

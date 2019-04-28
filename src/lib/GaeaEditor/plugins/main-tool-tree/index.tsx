@@ -11,21 +11,21 @@ import CustomTreeNode from './tree-node/tree-node.component';
 
 @Connect
 class MainToolTree extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   private treeContainer: React.ReactInstance;
 
-  public componentDidMount() {
+  componentDidMount() {
     const treeContainerDom = ReactDOM.findDOMNode(this.treeContainer) as HTMLElement;
     this.props.actions.TreeAction.setTreeRootDom(treeContainerDom);
   }
 
-  public handleMouseLeave = () => {
+  handleMouseLeave = () => {
     this.props.actions.ViewportAction.setCurrentHoverInstanceKey(null);
   };
 
-  public render() {
+  render() {
     const rootInstanceKey = this.props.stores.ViewportStore.rootInstanceKey;
 
     return (

@@ -4,8 +4,8 @@ import * as Styled from './box-editor.style';
 import * as typings from './box-editor.type';
 
 export class BoxEditor extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
   // 上一次鼠标 x, y 位置
   private lastX: number = null as any;
@@ -17,25 +17,25 @@ export class BoxEditor extends React.Component<typings.Props, typings.State> {
   // 记录鼠标是否按下了
   private hasMouseDown = false;
 
-  public componentWillMount() {
+  componentWillMount() {
     this.init(this.props);
   }
 
-  public componentWillReceiveProps(nextProps: typings.Props) {
+  componentWillReceiveProps(nextProps: typings.Props) {
     this.init(nextProps);
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     document.addEventListener('mousemove', this.handleMouseMove);
     document.addEventListener('mouseup', this.handleMouseUp);
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     document.removeEventListener('mousemove', this.handleMouseMove);
     document.removeEventListener('mouseup', this.handleMouseUp);
   }
 
-  public render() {
+  render() {
     const { size=0 } = this.props;
     const normalBorderWidth = size / 4;
     const specialBorderWidth = size / 7;

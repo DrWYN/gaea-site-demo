@@ -11,7 +11,7 @@
     "ordered-imports": false, // 导入包是否按照首字母排序
     "object-literal-sort-keys": false,  // 对象key按首字母排序
     "variable-name": false,
-    "member-access": [true], // 解决react中的钩子函数要加修饰符的问题
+    "member-access": [true, "no-public"], // 解决react中的钩子函数要加修饰符的问题
     "jsx-no-string-ref": false, // 可以使用ref字符串
     "no-unused-expression": false,
     "no-console": false,

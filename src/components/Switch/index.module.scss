@@ -1,0 +1,43 @@
+$width: 50px;
+$height: 24px;
+
+.base {
+  width: $width;
+  height: $height;
+  border-radius: $height;
+  will-change: background-color;
+  transition: background-color .15s linear;
+  -webkit-transition: background-color .15s linear;
+
+  > div {
+    width: $height;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    will-change: left;
+    transition: left .15s ease-in-out;
+    -webkit-transition: left .15s ease-in-out;
+  }
+}
+
+.on {
+  @extend .base;
+  border: 1px solid transparent;
+  > div {
+    left: $width - $height;
+  }
+}
+
+.off {
+  @extend .base;
+  border: 1px solid #e7e7e7;
+  > div {
+    left: 0;
+  }
+}
+
+.disabled {
+  @extend .base;
+  border: 1px solid #e7e7e7;
+}

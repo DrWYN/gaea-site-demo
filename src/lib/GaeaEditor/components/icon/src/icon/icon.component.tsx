@@ -86,10 +86,10 @@ iconMap.set('flexAlignCenter', flexAlignCenter);
 iconMap.set('flexAlignStretch', flexAlignStretch);
 
 export class Icon extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
-  public render() {
+  render() {
     const { type='', size=0 } = this.props;
     const iconMapObj = iconMap.get(type);
     return (

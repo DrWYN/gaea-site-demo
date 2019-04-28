@@ -11,20 +11,20 @@ class State {}
 
 @Connect
 export default class Viewport extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   /**
    * 获取自己的实例
    */
-  public getRef = (ref: any) => {
+  getRef = (ref: any) => {
     this.props.actions.ViewportAction.setViewportDOM(ReactDOM.findDOMNode(ref) as HTMLElement);
   };
 
   /**
    * 鼠标移开视图区域
    */
-  public handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
+  handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
 
     // 触发事件
@@ -34,7 +34,7 @@ export default class Viewport extends React.Component<Props, State> {
     this.props.actions.ViewportAction.setCurrentHoverInstanceKey(null);
   };
 
-  public render() {
+  render() {
     if (this.props.stores.ViewportStore.rootInstanceKey === null) {
       return null;
     }

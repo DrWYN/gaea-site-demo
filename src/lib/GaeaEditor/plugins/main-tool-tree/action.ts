@@ -8,7 +8,7 @@ export default class TreeAction {
    * 设置树根节点
    */
   @Action
-  public setTreeRootDom(dom: HTMLElement) {
+  setTreeRootDom(dom: HTMLElement) {
     this.store.treeRootDom = dom;
   }
 
@@ -16,14 +16,14 @@ export default class TreeAction {
    * 新增树 dom
    */
   @Action
-  public addTreeDom(instanceKey: string, dom: HTMLElement) {
+  addTreeDom(instanceKey: string, dom: HTMLElement) {
     this.store.treeDoms.set(instanceKey, dom);
   }
   /**
    * 移除树 dom
    */
   @Action
-  public removeTreeDom(instanceKey: string) {
+  removeTreeDom(instanceKey: string) {
     this.store.treeDoms.delete(instanceKey);
   }
 }

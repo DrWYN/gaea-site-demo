@@ -8,19 +8,19 @@ import { Props, State } from './index.type';
 
 @Connect
 class MainToolEditorManager extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   /**
    * 组件实例的信息
    */
   private instanceInfo: InstanceInfo;
 
-  public shouldComponentUpdate(nextProps: any, nextState: any) {
+  shouldComponentUpdate(nextProps: any, nextState: any) {
     return _.isEqual(this.props, nextProps) || _.isEqual(this.state, nextState);
   }
 
-  public render() {
+  render() {
     // 当前编辑组件的 key
     const instanceKey = this.props.stores.ViewportStore.currentEditInstanceKey;
 

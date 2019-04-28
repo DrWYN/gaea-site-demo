@@ -4,11 +4,11 @@ export class Props extends StoreProps<void, void> {
   /**
    * Real value field
    */
-  public realField: string;
+  realField: string;
   /**
    * Editor
    */
-  public editor: IEditor;
+  editor: IEditor;
 }
 
 export class State {}

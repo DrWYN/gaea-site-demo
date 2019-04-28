@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> no props 1`] = `
+<span
+  data-testid={undefined}
+  style={
+    Object {
+      "wordWrap": "break-word",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> props children 1`] = `
+<span
+  data-testid={undefined}
+  style={
+    Object {
+      "wordWrap": "break-word",
+    }
+  }
+>
+  aaa 
+  <span
+    data-testid={undefined}
+    style={
+      Object {
+        "wordWrap": "break-word",
+      }
+    }
+  >
+    bbb
+  </span>
+</span>
+`;
+
+exports[`<Text /> props className 1`] = `
+<span
+  className="class"
+  data-testid={undefined}
+  style={
+    Object {
+      "wordWrap": "break-word",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> props numberOfLines 1`] = `
+<span
+  data-testid={undefined}
+  style={
+    Object {
+      "WebkitBoxOrient": "vertical",
+      "WebkitLineClamp": 2,
+      "display": "-webkit-box",
+      "overflow": "hidden",
+      "textOverflow": "ellipsis",
+      "wordBreak": "break-word",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> props testID 1`] = `
+<span
+  data-testid="test"
+  style={
+    Object {
+      "wordWrap": "break-word",
+    }
+  }
+/>
+`;

@@ -7,10 +7,10 @@ import * as typings from './guideline.type';
 
 @Connect
 export default class Guideline extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
-  public componentWillReact() {
+  componentWillReact() {
     if (
       this.props.stores.ViewportStore.currentHoverInstanceKey === null ||
       this.props.stores.TreeStore.currentHoverTreeDom === undefined
@@ -38,7 +38,7 @@ export default class Guideline extends React.Component<typings.Props, typings.St
     }
   }
 
-  public render() {
+  render() {
     if (
       this.props.stores.ViewportStore.currentHoverInstanceKey === null ||
       this.props.stores.TreeStore.currentHoverTreeDom === undefined

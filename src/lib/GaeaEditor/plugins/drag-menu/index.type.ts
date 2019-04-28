@@ -6,5 +6,5 @@ export class State {
   /**
    * 当前搜索内容
    */
-  public searchContent = '';
+  searchContent = '';
 }

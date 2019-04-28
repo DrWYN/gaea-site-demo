@@ -6,15 +6,15 @@ const keymaster = require('keymaster');
 
 @Connect
 class Delete extends PureComponent {
-  public componentDidMount() {
+  componentDidMount() {
     keymaster('backspace', this.delete);
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     keymaster.unbind('backspace');
   }
 
-  public render() {
+  render() {
     return null as any;
   }
 

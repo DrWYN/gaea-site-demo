@@ -4,7 +4,7 @@ export class Props extends StoreProps<void, void> {
   /**
    * injected
    */
-  public realField?: string;
+  realField?: string;
 }
 
 export class State {}

@@ -12,7 +12,7 @@ export default class ApplicationAction {
   // private viewportStore: ViewportStore;
 
   @Action
-  public clearPlugin() {
+  clearPlugin() {
     this.store.plugins = [];
   }
 
@@ -20,7 +20,7 @@ export default class ApplicationAction {
    * 添加插件
    */
   @Action
-  public addPlugin(plugin: IPlugin) {
+  addPlugin(plugin: IPlugin) {
     this.store.plugins && this.store.plugins.push(plugin);
   }
 
@@ -28,7 +28,7 @@ export default class ApplicationAction {
    * position 根据位置加载插件
    */
   @Action
-  public loadPluginByPosition(position: string, props?: any) {
+  loadPluginByPosition(position: string, props?: any) {
     return this.store.plugins && this.store.plugins
       .filter(plugin => plugin.position === position)
       .map((plugin, index) => {
@@ -43,7 +43,7 @@ export default class ApplicationAction {
    * add component class
    */
   @Action
-  public addComponentClass(componentClass: React.ComponentClass<IGaeaProps>) {
+  addComponentClass(componentClass: React.ComponentClass<IGaeaProps>) {
     // @ts-ignore
     const gaeaKey = componentClass.defaultProps.editSetting.key;
     this.store.componentClasses.set(gaeaKey, componentClass);
@@ -61,7 +61,7 @@ export default class ApplicationAction {
    * 添加组件的配置信息
    */
   @Action
-  public setComponentSetting(gaeaOrPreKey: string, setting: IGaeaSetting) {
+  setComponentSetting(gaeaOrPreKey: string, setting: IGaeaSetting) {
     if (!this.store.componentSetting.has(gaeaOrPreKey)) {
       this.store.componentSetting.set(gaeaOrPreKey, setting);
     } else {
@@ -74,7 +74,7 @@ export default class ApplicationAction {
    * 添加组件 defaultProps
    */
   @Action
-  public setComponentDefaultProps(gaeaOrPreKey: string, defaultProps: IDefaultProps) {
+  setComponentDefaultProps(gaeaOrPreKey: string, defaultProps: IDefaultProps) {
     if (!this.store.componentDefaultProps.has(gaeaOrPreKey)) {
       this.store.componentDefaultProps.set(gaeaOrPreKey, defaultProps);
     } else {
@@ -87,7 +87,7 @@ export default class ApplicationAction {
    * get component class by gaeaKey
    */
   @Action
-  public getComponentClassByKey(gaeaKey: string) {
+  getComponentClassByKey(gaeaKey: string) {
     return this.store.componentClasses.get(gaeaKey);
   }
 
@@ -95,17 +95,17 @@ export default class ApplicationAction {
    * set preview
    */
   @Action
-  public setPreview(isPreview: boolean) {
+  setPreview(isPreview: boolean) {
     this.store.isPreview = isPreview;
   }
 
   @Action
-  public setLeftTool(name: string | null) {
+  setLeftTool(name: string | null) {
     this.store.leftTool = name;
   }
 
   @Action
-  public setRightTool(name: string | null) {
+  setRightTool(name: string | null) {
     this.store.rightTool = name;
   }
 
@@ -113,7 +113,7 @@ export default class ApplicationAction {
    * 弹出模态框
    */
   @Action
-  public createModal(config: { title: string }, renderContent: () => React.ReactElement<any>) {
+  createModal(config: { title: string }, renderContent: () => React.ReactElement<any>) {
     this.store.modalTitle = config.title;
     this.store.modalContentRender = renderContent;
     this.store.isShowModal = true;
@@ -123,7 +123,7 @@ export default class ApplicationAction {
    * 关闭模态框
    */
   @Action
-  public closeModal() {
+  closeModal() {
     this.store.isShowModal = false;
     this.store.modalTitle = '';
     // @ts-ignore
@@ -134,7 +134,7 @@ export default class ApplicationAction {
    * 渲染模态框内容
    */
   @Action
-  public renderModalContent() {
+  renderModalContent() {
     if (typeof this.store.modalContentRender === 'function') {
       return this.store.modalContentRender(this.closeModal);
     } else {
@@ -146,7 +146,7 @@ export default class ApplicationAction {
    * 重置应用状态，将当前状态全部清空，适合做一些动作前清场
    */
   @Action
-  public resetApplication() {
+  resetApplication() {
     this.store.isPreview = false;
     this.store.isShowModal = false;
     this.store.leftTool = null;
@@ -157,7 +157,7 @@ export default class ApplicationAction {
    * 设置预设组件
    */
   @Action
-  public setPreComponent(gaeaKey: string, setting: IPreComponent) {
+  setPreComponent(gaeaKey: string, setting: IPreComponent) {
     if (!this.store.preComponents.has(gaeaKey)) {
       this.store.preComponents.set(gaeaKey, [setting]);
     } else {
@@ -170,7 +170,7 @@ export default class ApplicationAction {
    * 根据 instanceKey 获取配置
    */
   @Action
-  public getSettingByInstance(instance: InstanceInfo) {
+  getSettingByInstance(instance: InstanceInfo) {
     // @ts-ignore
     if (this.store.componentSetting.has(instance.preGaeaKey)) {
       // @ts-ignore
@@ -185,7 +185,7 @@ export default class ApplicationAction {
    * 根据 instanceKey 获取 defaultProps
    * 辅助方法，在编辑器中调用，因此没有使用 @Action, 为了数据追踪
    */
-  public getDefaultPropsByInstance(instance: InstanceInfo) {
+  getDefaultPropsByInstance(instance: InstanceInfo) {
       // @ts-ignore
     if (this.store.componentDefaultProps.has(instance.preGaeaKey)) {
       // @ts-ignore
@@ -200,7 +200,7 @@ export default class ApplicationAction {
    * 根据组件 key 获取 defaultProps 的镜像结构。为确保能正确嵌套数组的数据，数组的数据将被完整保留，其它仅保留数据结构。
    * @param gaeaOrPreKey 组件 gaeakey 或 preGaeakey
    */
-  public getDefaultMirrorPropsByKey(gaeaOrPreKey: string): IDefaultProps {
+  getDefaultMirrorPropsByKey(gaeaOrPreKey: string): IDefaultProps {
     if (!this.store.componentDefaultProps.has(gaeaOrPreKey)) {
       return null;
     }
@@ -226,7 +226,7 @@ export default class ApplicationAction {
   }
 
   @Action
-  public setOnComponentDragStart(fn: any) {
+  setOnComponentDragStart(fn: any) {
     fn && (this.store.onComponentDragStart = fn);
   }
 
@@ -234,12 +234,12 @@ export default class ApplicationAction {
    * 设置国际化信息
    */
   @Action
-  public setLocale(locale: 'en' | 'zh') {
+  setLocale(locale: 'en' | 'zh') {
     this.store.locale = locale;
   }
 
   @Action
-  public setViewportStyle(style: React.CSSProperties) {
+  setViewportStyle(style: React.CSSProperties) {
     this.store.viewportStyle = style;
   }
 }

@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> test ("no props"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`<Button /> test ("props children"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+>
+  children
+</div>
+`;
+
+exports[`<Button /> test ("props className"):  1`] = `
+<div
+  className="flex flex-center class"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`<Button /> test ("props disabled"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  style={Object {}}
+/>
+`;
+
+exports[`<Button /> test ("props icon"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+>
+  <span
+    data-testid={undefined}
+    style={
+      Object {
+        "fontFamily": "iconfont",
+      }
+    }
+  >
+    
+  </span>
+</div>
+`;
+
+exports[`<Button /> test ("props onPress"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`<Button /> test ("props style"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`<Button /> test ("props testID"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid="testID"
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`<Button /> test ("props textStyle"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+/>
+`;
+
+exports[`<Button /> test ("props title"):  1`] = `
+<div
+  className="flex flex-center undefined"
+  data-testid=""
+  onMouseDown={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={Object {}}
+>
+  <span
+    data-testid={undefined}
+    style={
+      Object {
+        "wordWrap": "break-word",
+      }
+    }
+  >
+    title
+  </span>
+</div>
+`;

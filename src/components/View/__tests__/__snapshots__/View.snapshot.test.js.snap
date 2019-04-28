@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<View /> no props 1`] = `
+<div
+  data-testid=""
+/>
+`;
+
+exports[`<View /> props testID 1`] = `
+<div
+  data-testid="test"
+/>
+`;

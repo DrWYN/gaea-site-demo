@@ -11,12 +11,12 @@ export interface IActionsOrStores {
 }
 
 export class StoreProps<Actions = {}, Stores = {}> {
-  public actions: {
+  actions: {
     ApplicationAction: ApplicationAction;
     ViewportAction: ViewportAction;
     EventAction: EventAction;
   } & Actions;
-  public stores: {
+  stores: {
     ApplicationStore: ApplicationStore;
     ViewportStore: ViewportStore;
     EventStore: EventStore;
@@ -54,14 +54,14 @@ export class Store {
     });
   }
 
-  public addActions(actions: IActionsOrStores) {
+  addActions(actions: IActionsOrStores) {
     Object.keys(actions).forEach(key => {
       this.container.set(actions[key], new actions[key]());
       this.allActions.set(key, actions[key]);
     });
   }
 
-  public addStores(stores: IActionsOrStores) {
+  addStores(stores: IActionsOrStores) {
     Object.keys(stores).forEach(key => {
       this.container.set(stores[key], new stores[key]());
       this.allStores.set(key, stores[key]);
@@ -71,7 +71,7 @@ export class Store {
   /**
    * 获得 store
    */
-  public getStore() {
+  getStore() {
     this.allActions.forEach((actionClass, actionName) => {
       this.actions[actionName] = this.container.get(actionClass);
     });

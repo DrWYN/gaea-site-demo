@@ -40,7 +40,7 @@ export default class ViewportAction {
    * 设置视图区域 dom 对象
    */
   @Action
-  public setViewportDOM(dom: HTMLElement) {
+  setViewportDOM(dom: HTMLElement) {
     this.store.viewportDOM = dom;
   }
 
@@ -48,7 +48,7 @@ export default class ViewportAction {
    * 生成唯一的 instance key
    */
   @Action
-  public createNewInstanceKey(existInstances: string[] = []) {
+  createNewInstanceKey(existInstances: string[] = []) {
     let key: string = null;
 
     while (
@@ -66,7 +66,7 @@ export default class ViewportAction {
    * 设置根节点的 instance key
    */
   @Action
-  public setRootInstanceKey(key: string) {
+  setRootInstanceKey(key: string) {
     this.store.rootInstanceKey = key;
   }
 
@@ -74,7 +74,7 @@ export default class ViewportAction {
    * Add new instance to viewport
    */
   @Action
-  public addInstance(params: {
+  addInstance(params: {
     gaeaKey: string;
     parentInstanceKey: string;
     indexPosition: number;
@@ -121,7 +121,7 @@ export default class ViewportAction {
   }
 
   @Action
-  public moveInstance(sourceTargetKey: string, targetParentKey: string, targetIndex: number) {
+  moveInstance(sourceTargetKey: string, targetParentKey: string, targetIndex: number) {
     const sourceTargetInstance = this.store.instances.get(sourceTargetKey);
     const sourceParentInstance = this.store.instances.get(sourceTargetInstance.parentInstanceKey);
     const targetParentInstance = this.store.instances.get(targetParentKey);
@@ -150,7 +150,7 @@ export default class ViewportAction {
    * 同层级拖拽，不需要主动调用，直接调用 moveInstance 即可
    */
   @Action
-  public horizontalMoveInstance(parentKey: string, beforeIndex: number, afterIndex: number) {
+  horizontalMoveInstance(parentKey: string, beforeIndex: number, afterIndex: number) {
     const parentInstance = this.store.instances.get(parentKey);
     if (beforeIndex < afterIndex) {
       // 从左到右
@@ -172,7 +172,7 @@ export default class ViewportAction {
   }
 
   @Action
-  public removeInstance(reomveInstanceKey: string) {
+  removeInstance(reomveInstanceKey: string) {
     const removeInstance = this.store.instances.get(reomveInstanceKey);
 
     // 根节点无法删除
@@ -208,7 +208,7 @@ export default class ViewportAction {
    * 设置实例的 props 属性
    */
   @Action
-  public setInstanceProps(instanceKey: string, key: string, value: any) {
+  setInstanceProps(instanceKey: string, key: string, value: any) {
     const instance = this.store.instances.get(instanceKey);
     // const instanceClass = this.applicationStore.componentClasses.get(instance.gaeaKey);
 
@@ -233,7 +233,7 @@ export default class ViewportAction {
    * 设置实例的 event 属性
    */
   @Action
-  public setInstanceEvent(instanceKey: string, key: string, value: any) {
+  setInstanceEvent(instanceKey: string, key: string, value: any) {
     const instance = this.store.instances.get(instanceKey);
     _.set(instance.data, `events.${key}`, value);
   }
@@ -242,7 +242,7 @@ export default class ViewportAction {
    * 获得实例 props 属性，如果没有设置，选择 defaultProps 中属性
    * 辅助方法，在编辑器 render 函数中调用，因此没有使用 @Action, 为了数据追踪
    */
-  public getInstanceProps(instanceKey: string, key: string): any {
+  getInstanceProps(instanceKey: string, key: string): any {
     const instance = this.store.instances.get(instanceKey);
     const defaultProps = this.applicationAction.getDefaultPropsByInstance(instance);
 
@@ -260,7 +260,7 @@ export default class ViewportAction {
    * 获取某个组件全部子元素 mapUniqueKey 数组
    */
   @Action
-  public getAllChilds(instanceKey: string) {
+  getAllChilds(instanceKey: string) {
     const instance = this.store.instances.get(instanceKey);
     let childKeys = instance.childs || [];
     // 找到其子组件
@@ -279,7 +279,7 @@ export default class ViewportAction {
    *  设置当前 hover 元素的 instanceKey
    */
   @Action
-  public setCurrentHoverInstanceKey(instanceKey: string|null) {
+  setCurrentHoverInstanceKey(instanceKey: string|null) {
     this.store.currentHoverInstanceKey = instanceKey;
   }
 
@@ -287,7 +287,7 @@ export default class ViewportAction {
    * 设置当前 edit 元素的 instanceKey
    */
   @Action
-  public setCurrentEditInstanceKey(instanceKey: string) {
+  setCurrentEditInstanceKey(instanceKey: string) {
     // 如果和当前正在编辑元素相同，不做操作
     if (this.store.currentEditInstanceKey === instanceKey) {
       return;
@@ -298,12 +298,12 @@ export default class ViewportAction {
   }
 
   @Action
-  public startDrag(dragInfo: IDragInfo) {
+  startDrag(dragInfo: IDragInfo) {
     this.store.currentDragInfo = dragInfo;
   }
 
   @Action
-  public endDrag() {
+  endDrag() {
     this.store.currentDragInfo = null;
   }
 
@@ -311,7 +311,7 @@ export default class ViewportAction {
    * 从视图中移动到新父级时，设置拖拽信息
    */
   @Action
-  public setDragInfo(mapUniqueKey: string, index: number) {
+  setDragInfo(mapUniqueKey: string, index: number) {
     const newInfo = this.store.currentDragInfo.info as IDragInfoNew;
     newInfo.targetInstanceKey = mapUniqueKey;
     newInfo.targetIndex = index;
@@ -321,7 +321,7 @@ export default class ViewportAction {
    * 递归找到节点到根实例的路径
    */
   @Action
-  public getInstancePath(instanceKey: string) {
+  getInstancePath(instanceKey: string) {
     const finderPath: string[] = [this.store.currentEditInstanceKey];
 
     if (this.store.currentEditInstanceKey === null) {
@@ -350,7 +350,7 @@ export default class ViewportAction {
    * 设置 instance 的 dom 节点
    */
   @Action
-  public setDomInstance(instanceKey: string, dom: HTMLElement) {
+  setDomInstance(instanceKey: string, dom: HTMLElement) {
     this.store.instanceDoms.set(instanceKey, dom);
   }
 
@@ -358,7 +358,7 @@ export default class ViewportAction {
    * 重置当前视图
    */
   @Action
-  public resetViewport(fullInformation: IFullInformation) {
+  resetViewport(fullInformation: IFullInformation) {
     this.clearViewport();
 
     Object.keys(fullInformation).forEach(instanceKey => {
@@ -376,7 +376,7 @@ export default class ViewportAction {
    * 初始化视图
    */
   @Action
-  public initViewport() {
+  initViewport() {
     this.clearViewport();
 
     // const RootClass = this.applicationAction.getComponentClassByKey('gaea-container');
@@ -400,7 +400,7 @@ export default class ViewportAction {
    * 清空当前视图
    */
   @Action
-  public clearViewport() {
+  clearViewport() {
     this.store.instanceDoms.clear();
     this.store.instances.clear();
     this.store.rootInstanceKey = null;
@@ -413,7 +413,7 @@ export default class ViewportAction {
    * 获取同级的所有实例
    */
   @Action
-  public getSiblingInstances(instanceKey: string) {
+  getSiblingInstances(instanceKey: string) {
     const instance = this.store.instances.get(instanceKey);
 
     if (instance.parentInstanceKey === null) {
@@ -429,7 +429,7 @@ export default class ViewportAction {
    * 指的是当前元素与视图元素一一对应，拖拽相当于视图元素的拖拽，可以实现例如 treePlugin
    */
   @Action
-  public registerInnerDrag(
+  registerInnerDrag(
     parentInstanceKey: string,
     dragParentDom: HTMLElement,
     params?: any,
@@ -581,7 +581,7 @@ export default class ViewportAction {
    * 如果子元素有 data-source 属性，则会创建一个组合
    */
   @Action
-  public registerOuterDrag(dragParentDom: HTMLElement) {
+  registerOuterDrag(dragParentDom: HTMLElement) {
     // 上次拖拽的位置
     let lastDragStartIndex = -1;
 
@@ -685,7 +685,7 @@ export default class ViewportAction {
    * 给实例新增一个初始化事件
    */
   @Action
-  public instanceAddEvent(instanceKey: string) {
+  instanceAddEvent(instanceKey: string) {
     const instance = this.store.instances.get(instanceKey);
     if (!instance) {
       throw Error(`instanceKey: ${instanceKey} 不存在`);
@@ -711,7 +711,7 @@ export default class ViewportAction {
    * 删除实例第 index 个事件
    */
   @Action
-  public instanceRemoveEvent(instanceKey: string, index: number) {
+  instanceRemoveEvent(instanceKey: string, index: number) {
     const instance = this.store.instances.get(instanceKey);
     if (!instance) {
       throw Error(`instanceKey: ${instanceKey} 不存在`);
@@ -724,7 +724,7 @@ export default class ViewportAction {
    * 设置第 index 个事件的值
    */
   @Action
-  public instanceSetEvent(instanceKey: string, index: number, event: InstanceInfoEvent) {
+  instanceSetEvent(instanceKey: string, index: number, event: InstanceInfoEvent) {
     const instance = this.store.instances.get(instanceKey);
     if (!instance) {
       throw Error(`instanceKey: ${instanceKey} 不存在`);
@@ -742,7 +742,7 @@ export default class ViewportAction {
    * 支持：回调(callback)
    */
   @Action
-  public eventGetSiblingParam(event: InstanceInfoEvent) {
+  eventGetSiblingParam(event: InstanceInfoEvent) {
     // 只有动作是传入同层级，才会记录
     if (event.action.type !== 'passingSiblingNodes') {
       return null;
@@ -768,7 +768,7 @@ export default class ViewportAction {
    * PS: realField: props 下实际路径，比如 style.users.0.name
    */
   @Action
-  public instanceFieldIsVariable(instanceKey: string, realField: string) {
+  instanceFieldIsVariable(instanceKey: string, realField: string) {
     const instance = this.store.instances.get(instanceKey);
 
     if (instance.variables && Object.keys(instance.variables).some(key => key === realField)) {
@@ -782,7 +782,7 @@ export default class ViewportAction {
    * 启用变量模式
    */
   @Action
-  public instanceEnableVariable(instanceKey: string, realField: string) {
+  instanceEnableVariable(instanceKey: string, realField: string) {
     const instance = this.store.instances.get(instanceKey);
 
     if (!instance.variables) {
@@ -796,7 +796,7 @@ export default class ViewportAction {
    * 取消变量模式
    */
   @Action
-  public instanceDisableVariable(instanceKey: string, realField: string) {
+  instanceDisableVariable(instanceKey: string, realField: string) {
     const instance = this.store.instances.get(instanceKey);
 
     if (instance.variables && Object.keys(instance.variables).some(key => key === realField)) {
@@ -808,7 +808,7 @@ export default class ViewportAction {
    * 设置变量的值
    */
   @Action
-  public instanceSetVariable(instanceKey: string, realField: string, value: InstanceInfoVariable) {
+  instanceSetVariable(instanceKey: string, realField: string, value: InstanceInfoVariable) {
     const instance = this.store.instances.get(instanceKey);
     instance.variables[realField] = value;
   }

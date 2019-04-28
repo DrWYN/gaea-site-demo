@@ -5,22 +5,22 @@ import * as typings from './index.type';
 
 @Connect
 class ViewportGuideline extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
   private timeOut: any;
 
-  public componentDidMount() {
+  componentDidMount() {
     this.props.actions.EventAction.on(this.props.stores.EventStore.viewportUpdated, this.handleViewportUpdated);
     this.updateTimeout();
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.props.actions.EventAction.off(this.props.stores.EventStore.viewportUpdated, this.handleViewportUpdated);
     clearTimeout(this.timeOut);
   }
 
-  public render() {
+  render() {
     // 正在拖拽中不显示
     if (this.props.stores.ViewportStore.currentDragInfo !== null) {
       return null;

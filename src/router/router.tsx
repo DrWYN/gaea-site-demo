@@ -23,7 +23,7 @@ const AsyncNoMatchPage = Loadable({
 
 
 export default class Root extends React.Component {
-    public render() {
+    render() {
         return (
             <Router history={history}>
               <Switch>

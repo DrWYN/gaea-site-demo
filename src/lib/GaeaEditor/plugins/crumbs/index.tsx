@@ -5,10 +5,10 @@ import * as typings from './index.type';
 
 @Connect
 class Crumbs extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
-  public render() {
+  render() {
     let childs: Array<React.ReactElement<any>> = [];
 
     if (this.props.stores.ViewportStore.currentEditInstanceKey) {

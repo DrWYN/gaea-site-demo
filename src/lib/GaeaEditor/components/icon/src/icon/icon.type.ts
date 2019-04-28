@@ -2,12 +2,12 @@ export class Props {
   /**
    * 图标类型
    */
-  public type?: string = 'close';
+  type?: string = 'close';
   /**
    * 图标大小
    */
-  public size?: number = 20;
-  public className?: string = '';
+  size?: number = 20;
+  className?: string = '';
 }
 
 export class State {}

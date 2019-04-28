@@ -6,16 +6,16 @@ import { Props, State } from './index.type';
 
 @Connect
 class MainTool extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
-  public handleChange = (activeKey: string) => {
+  handleChange = (activeKey: string) => {
     this.setState({
       activeKey
     });
   };
 
-  public render() {
+  render() {
     return (
       <S.Container>
         <Tabs activeKey={this.state.activeKey} onChange={this.handleChange}>

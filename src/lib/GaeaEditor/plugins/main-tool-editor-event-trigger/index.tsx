@@ -18,8 +18,8 @@ const triggerOptions = [
 
 @Connect
 class MainToolEditorEventTrigger extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   /**
    * 组件实例的信息
@@ -36,7 +36,7 @@ class MainToolEditorEventTrigger extends React.Component<Props, State> {
    */
   private currentEventInfo: InstanceInfoEvent;
 
-  public render() {
+  render() {
     // 当前编辑组件的 key
     const instanceKey = this.props.stores.ViewportStore.currentEditInstanceKey;
 

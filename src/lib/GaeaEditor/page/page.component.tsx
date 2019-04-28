@@ -9,20 +9,20 @@ import * as Styled from './page.style';
 import Viewport from './viewport/viewport.component';
 
 class Props {
-  public componentClasses?: Array<React.ComponentClass<IGaeaProps>> = [];
-  public ViewportRender = Styled.ViewportAndPreviewContainer;
-  public stores:any;
-  public actions: any;
+  componentClasses?: Array<React.ComponentClass<IGaeaProps>> = [];
+  ViewportRender = Styled.ViewportAndPreviewContainer;
+  stores:any;
+  actions: any;
 }
 
 class State {}
 
 @Connect
 export default class Page extends PureComponent<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
-  public render() {
+  render() {
     const ViewportRender = this.props.ViewportRender;
     return (
       <Styled.Container>

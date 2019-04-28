@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SwipeRow /> no props 1`] = `
+<div
+  className=""
+  data-testid=""
+  style={Object {}}
+>
+  <div
+    className="undefined "
+    data-testid=""
+    style={
+      Object {
+        "left": 0,
+        "overflow": "visible",
+      }
+    }
+  >
+    <div
+      data-testid=""
+      style={
+        Object {
+          "left": -0,
+          "width": 0,
+        }
+      }
+    />
+    <div>
+      <div>
+        test
+      </div>
+    </div>
+    <div
+      data-testid=""
+      style={
+        Object {
+          "right": -0,
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`<SwipeRow /> props 1`] = `
+<div
+  className=""
+  data-testid=""
+  style={Object {}}
+>
+  <div
+    className="undefined "
+    data-testid=""
+    style={
+      Object {
+        "left": 0,
+        "overflow": "visible",
+      }
+    }
+  >
+    <div
+      data-testid=""
+      style={
+        Object {
+          "left": -0,
+          "width": 0,
+        }
+      }
+    >
+      <div />
+    </div>
+    <div>
+      <div />
+    </div>
+    <div
+      data-testid=""
+      style={
+        Object {
+          "right": -0,
+          "width": 0,
+        }
+      }
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;

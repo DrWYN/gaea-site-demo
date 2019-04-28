@@ -7,16 +7,16 @@ import { Props, State } from './index.type';
 
 @Connect
 class DragMenu extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   private listContainer: HTMLDivElement | null;
 
-  public componentDidMount() {
+  componentDidMount() {
     this.props.actions.ViewportAction.registerOuterDrag(ReactDOM.findDOMNode(this.listContainer) as HTMLElement);
   }
 
-  public render() {
+  render() {
     return (
       <Styled.Container>
         <Styled.Title>

@@ -1,0 +1,23 @@
+.radio-root {
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    color: #979797;
+}
+
+.disabled {
+    background-color: #e0e0e0;
+}
+
+.radio-selected {
+    // background-color: #ff6f00;
+    font-size: 16px;
+    color: #fff;
+    background-image: linear-gradient(to right, #ff6f00, #ff4700)
+}

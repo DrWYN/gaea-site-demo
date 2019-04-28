@@ -1,0 +1,18 @@
+import AntButton from 'Components/Button/index';
+import * as React from 'react';
+import { Props } from './type';
+
+const Button:React.SFC<Props> = (props) => {
+    return (
+      <AntButton
+        style={props.style}
+        onPress={props.onClick}
+      >
+        {props.text}
+      </AntButton>
+    );
+}
+
+Button.defaultProps = new Props();
+
+export {Button};

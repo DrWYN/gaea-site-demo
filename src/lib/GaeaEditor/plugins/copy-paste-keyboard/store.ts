@@ -1,5 +1,5 @@
 export class CopyPasteStore {
-  public currentInstances: {
+  currentInstances: {
     [instanceKey: string]: InstanceInfo;
   };
 }

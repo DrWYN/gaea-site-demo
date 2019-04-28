@@ -5,5 +5,5 @@ export class State {
   /**
    * 当前 tab 选择
    */
-  public activeKey?: string = 'editor';
+  activeKey?: string = 'editor';
 }

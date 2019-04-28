@@ -1,0 +1,17 @@
+.SwipeRow {
+  position: relative;
+  top: 0;
+  // will-change: left;
+  transition: left .15s ease-in-out;
+  -webkit-transition: left .15s ease-in-out;
+
+  > div {
+    height: 100%;
+  }
+
+  > div:nth-of-type(1),
+  > div:nth-of-type(3) {
+    position: absolute;
+    top: 0;
+  }
+}

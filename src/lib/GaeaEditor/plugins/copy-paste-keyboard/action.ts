@@ -10,7 +10,7 @@ export class CopyPasteAction {
   @inject(ViewportStore) private viewportStore: ViewportStore;
 
   @Action
-  public copyCurrentHoverInstance() {
+  copyCurrentHoverInstance() {
     if (!this.viewportStore.currentHoverInstanceKey) {
       return;
     }
@@ -32,7 +32,7 @@ export class CopyPasteAction {
   }
 
   @Action
-  public pasteToCurrentHoverInstance() {
+  pasteToCurrentHoverInstance() {
     if (!this.viewportStore.currentHoverInstanceKey) {
       return;
     }

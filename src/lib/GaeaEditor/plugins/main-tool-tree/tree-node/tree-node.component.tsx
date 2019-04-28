@@ -6,13 +6,13 @@ import * as Styled from './tree-node.style';
 import * as typings from './tree-node.type';
 
 class CustomTreeNode extends React.Component<typings.Props, typings.State> {
-  public static defaultProps = new typings.Props();
-  public state = new typings.State();
+  static defaultProps = new typings.Props();
+  state = new typings.State();
 
   /**
    * 当前绑定节点信息
    */
-  public instanceInfo: InstanceInfo;
+  instanceInfo: InstanceInfo;
 
   /**
    * 组件的类
@@ -29,14 +29,14 @@ class CustomTreeNode extends React.Component<typings.Props, typings.State> {
    */
   private setting: IGaeaSetting;
 
-  public componentWillMount() {
+  componentWillMount() {
     // 从 store 找到自己信息
     this.instanceInfo = (this.props.stores.ViewportStore.instances.get(this.props.instanceKey) as InstanceInfo);
     // this.componentClass = this.props.actions.ApplicationAction.getComponentClassByKey(this.instanceInfo.gaeaKey);
     this.setting = this.props.actions.ApplicationAction.getSettingByInstance(this.instanceInfo);
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.health++;
 
     this.props.actions.TreeAction.addTreeDom(this.props.instanceKey, ReactDOM.findDOMNode(this) as HTMLElement);
@@ -52,7 +52,7 @@ class CustomTreeNode extends React.Component<typings.Props, typings.State> {
     }
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.health--;
 
     // 因为一个组件跨层级拖动，会先生成再销毁，这时组件没有死亡，所以不要把监听移除
@@ -65,11 +65,11 @@ class CustomTreeNode extends React.Component<typings.Props, typings.State> {
   /**
    * 更新此元素的 dom 信息
    */
-  public updateDom = () => {
+  updateDom = () => {
     this.props.actions.TreeAction.addTreeDom(this.props.instanceKey, ReactDOM.findDOMNode(this) as HTMLElement);
   };
 
-  public handleRenderTitle = () => {
+  handleRenderTitle = () => {
     // TODO: 如果有事件，显示出标识
     // const eventTag: React.ReactElement<any>;
     // if (this.instanceInfo.props.gaeaEventData && this.instanceInfo.props.gaeaEventData.length > 0 || (this.instanceInfo.props.gaeaNativeEventData && this.instanceInfo.props.gaeaNativeEventData.length)) {
@@ -88,17 +88,17 @@ class CustomTreeNode extends React.Component<typings.Props, typings.State> {
     );
   };
 
-  public handleMouseOver = (event: MouseEvent) => {
+  handleMouseOver = (event: MouseEvent) => {
     event.stopPropagation();
     this.props.actions.ViewportAction.setCurrentHoverInstanceKey(this.props.instanceKey);
   };
 
-  public handleClick = (event: MouseEvent) => {
+  handleClick = (event: MouseEvent) => {
     event.stopPropagation();
     this.props.actions.ViewportAction.setCurrentEditInstanceKey(this.props.instanceKey);
   };
 
-  public render() {
+  render() {
     // 子元素
     let childs: Array<React.ReactElement<any>> = [];
 

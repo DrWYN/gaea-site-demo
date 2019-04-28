@@ -10,14 +10,14 @@ import { Props, State } from './edit-helper.type';
  * 一个辅助编辑状态的外壳，内部包裹实际渲染的组件
  */
 class EditHelper extends React.Component<Props, State> {
-  public static defaultProps = new Props();
+  static defaultProps = new Props();
 
-  public state = new State();
+  state = new State();
 
   /**
    * 暴露内层组件实例
    */
-  public wrappedInstance: React.ReactInstance;
+  wrappedInstance: React.ReactInstance;
 
   /**
    * 组件的类
@@ -49,7 +49,7 @@ class EditHelper extends React.Component<Props, State> {
    */
   private isInHighlight = false;
 
-  public componentWillMount() {
+  componentWillMount() {
     const { instanceKey='' } = this.props;
     this.instanceInfo = (this.props.stores.ViewportStore.instances.get(instanceKey) as InstanceInfo);
     this.componentClass = (this.props.actions.ApplicationAction.getComponentClassByKey(this.instanceInfo.gaeaKey) as React.ComponentClass<IGaeaProps>);
@@ -57,7 +57,7 @@ class EditHelper extends React.Component<Props, State> {
     this.defaultProps = (this.props.actions.ApplicationAction.getDefaultPropsByInstance(this.instanceInfo) as IDefaultProps);
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.domInstance = ReactDOM.findDOMNode(this.wrappedInstance) as HTMLElement;
 
     // 绑定监听
@@ -93,18 +93,18 @@ class EditHelper extends React.Component<Props, State> {
     });
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.props.actions.EventAction.off(
       `${this.props.stores.EventStore.instanceUpdate}.${this.props.instanceKey}`,
       this.forceRender
     );
   }
 
-  public forceRender = () => {
+  forceRender = () => {
     this.forceUpdate();
   };
 
-  public handleMouseOver = (event: MouseEvent) => {
+  handleMouseOver = (event: MouseEvent) => {
     event.stopPropagation();
 
     this.props.actions.EventAction.emit(this.props.stores.EventStore.mouseHoveringComponent, {
@@ -115,7 +115,7 @@ class EditHelper extends React.Component<Props, State> {
     this.props.actions.ViewportAction.setCurrentHoverInstanceKey(this.props.instanceKey);
   };
 
-  public handleClick = (event: MouseEvent) => {
+  handleClick = (event: MouseEvent) => {
     event.stopPropagation();
 
     // 将当前组件设置为正在编辑状态
@@ -127,13 +127,13 @@ class EditHelper extends React.Component<Props, State> {
   /**
    * 如果是布局容器，且不是最外层元素，添加 gaea-layout class，用于添加布局样式
    */
-  public setLayoutClassIfCanDragIn = () => {
+  setLayoutClassIfCanDragIn = () => {
     if (this.setting.isContainer && this.instanceInfo.parentInstanceKey !== null) {
       addClass(this.domInstance, 'gaea-container');
     }
   };
 
-  public render() {
+  render() {
     // 子元素
     let childs: Array<React.ReactElement<any>> | undefined;
 

@@ -4,7 +4,7 @@ export class Props extends StoreProps<void, void> {
   /**
    * 实例唯一的 key
    */
-  public instanceKey: string;
+  instanceKey: string;
 }
 
 export class State {}

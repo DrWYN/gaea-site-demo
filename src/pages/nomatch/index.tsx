@@ -5,12 +5,16 @@ import styles from './style.module.scss';
 
 class NoMatch extends React.Component {
 
-  public render(){
+  onSave = (v: any) => {
+    console.log('--->>>>>>onSave', v)
+  }
+
+  render(){
     // const {} = this.props;
     console.log('-->>>>>this.props = ', this.props);
     return (
         <div className={`flex flex-column flex-1 flex-no-shrink flex-center-h ${styles.container}`}>
-          <Editor onSave={(v) => {console.log('--->>>>>>onSave', v)}}/>
+          <Editor onSave={this.onSave}/>
         </div>
   )
   }

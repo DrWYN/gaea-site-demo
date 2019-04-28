@@ -11,10 +11,10 @@ export class State {}
 
 @Connect
 class DragMenuButton extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
-  public render() {
+  render() {
     return (
       <Tooltip title={this.props.stores.ApplicationStore.setLocale('挑选组件', 'Pick Component')} placement="right">
         <Styled.Container

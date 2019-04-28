@@ -1,0 +1,9 @@
+.scrollView {
+  // composes: flex flex-1 from 'Common/styles/index.scss';
+  -webkit-overflow-scrolling: touch;
+
+  // -webkit-transform: translate3d(0, 0, 0);
+  // transform: translate3d(0, 0, 0);
+
+  // will-change: scroll-position;
+}

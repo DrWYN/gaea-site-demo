@@ -6,8 +6,8 @@ import { Props, State } from './index.type';
 
 @Connect
 class MainToolEditor extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   /**
    * 组件的类
@@ -24,7 +24,7 @@ class MainToolEditor extends React.Component<Props, State> {
    */
   private setting: IGaeaSetting;
 
-  public render() {
+  render() {
     // 当前编辑组件的 key
     const instanceKey = this.props.stores.ViewportStore.currentEditInstanceKey;
 

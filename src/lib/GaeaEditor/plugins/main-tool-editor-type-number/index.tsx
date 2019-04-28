@@ -32,8 +32,8 @@ const parseInputToOutRange = (value: number | string | undefined, inputRange: nu
 
 @Connect
 class MainToolEditorNumber extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   /**
    * 组件实例的信息
@@ -42,7 +42,7 @@ class MainToolEditorNumber extends React.Component<Props, State> {
 
   private numberData: IEditorNumberData;
 
-  public render() {
+  render() {
     if (!this.props.stores.ViewportStore.instances.has(this.props.stores.ViewportStore.currentEditInstanceKey)) {
       return null;
     }

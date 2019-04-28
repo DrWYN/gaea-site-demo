@@ -65,12 +65,12 @@ const allPlugins: Array<[string, any]> = [
 ];
 
 export default class GaeaEditor extends React.Component<Props, State> {
-  public static defaultProps = new Props();
-  public state = new State();
+  static defaultProps = new Props();
+  state = new State();
 
   private stores = new Store();
 
-  public componentWillMount() {
+  componentWillMount() {
     // plug-in plugins
     const builtInPlugins: IPlugin[] = allPlugins
       .filter(each => {
@@ -128,13 +128,13 @@ export default class GaeaEditor extends React.Component<Props, State> {
     this.stores.getStore().actions.ApplicationAction.setOnComponentDragStart(this.props.onComponentDragStart);
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.stores
       .getStore()
       .actions.EventAction.off(this.stores.getStore().stores.EventStore.emitEditorCallback, this.handleCallback);
   }
 
-  public render() {
+  render() {
     return (
       <Provider {...this.stores.getStore()}>
         <Page componentClasses={this.props.componentClasses} ViewportRender={this.props.ViewportRender as any} />

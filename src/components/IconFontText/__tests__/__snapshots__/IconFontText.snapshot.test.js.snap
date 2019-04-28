@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IconFontText /> props 1`] = `
+<span
+  className="test"
+  data-testid="test"
+  style={
+    Object {
+      "fontFamily": "iconfont",
+    }
+  }
+/>
+`;

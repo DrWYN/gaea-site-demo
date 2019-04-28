@@ -10,6 +10,6 @@ export class Props extends StoreProps<
     TreeStore: TreeStore;
   }
 > {
-  public instanceKey: string;
+  instanceKey: string;
 }
 export class State {}
